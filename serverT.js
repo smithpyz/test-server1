@@ -9,19 +9,19 @@ var http = require("http");
 var PORT1 = 10000;
 var PORT2 = 10500;
 // Create a generic function to handle requests and responses
-function handleRequest1(request, response) {
+function handleGoodRequest1(request, response) {
   // Send the below string to the client when the user visits the PORT URL
   response.end("It Works!! Path Hit: " + request.url);
 }
 
-function handleRequest2(request, response) {
+function handleBadRequest2(request, response) {
   // Send the below string to the client when the user visits the PORT URL
   response.end("I guess it works, you smelly butt. Path Hit: " + request.url);
 }
 // Use the Node HTTP package to create our server.
 // Pass the handleRequest function to empower it with functionality.
-var server1 = http.createServer(handleRequest1);
-var server2 = http.createServer(handleRequest2);
+var server1 = http.createServer(handleGoodRequest1);
+var server2 = http.createServer(handleBadRequest2);
 // Start our server so that it can begin listening to client requests.
 // you need to set all of this up FIRST before you do the server.listen function because otherwise you'll come back with garbage.
 // this function ONLY tells the server when to start listening. it doesn't have anything related to handleRequest --- so you need to put in more crap after.
